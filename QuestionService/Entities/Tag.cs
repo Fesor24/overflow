@@ -2,10 +2,15 @@
 
 namespace QuestionService.Entities;
 
-public class Tag
+public class Tag : BaseEntity
 {
-    [MaxLength(36)]
-    public string Id { get; set; } = Guid.NewGuid().ToString();
+    public Tag(){}
+    
+    public Tag(string id) : base(id)
+    {
+        
+    }
+    
     [MaxLength(60)]
     public required string Name { get; set; }
     [MaxLength(60)]

@@ -2,10 +2,11 @@
 
 namespace QuestionService.Entities;
 
-public class Question
+public class Question : BaseEntity
 {
-    [MaxLength(36)]
-    public string Id { get; set; } = Guid.NewGuid().ToString();
+    public Question(){}
+    public Question(string id): base(id){}
+    
     [MaxLength(300)]
     public required string Title { get; set; }
     [MaxLength(5000)]
