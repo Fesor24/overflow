@@ -4,7 +4,7 @@ namespace QuestionService.Entities;
 
 public class Tag : BaseEntity
 {
-    public Tag(){}
+    public Tag(): base(){}
     
     public Tag(string id) : base(id)
     {

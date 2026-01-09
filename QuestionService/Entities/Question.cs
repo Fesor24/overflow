@@ -4,7 +4,7 @@ namespace QuestionService.Entities;
 
 public class Question : BaseEntity
 {
-    public Question(){}
+    public Question() : base() { }
     public Question(string id): base(id){}
     
     [MaxLength(300)]
