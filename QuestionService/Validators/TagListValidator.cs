@@ -1,6 +1,18 @@
-﻿namespace QuestionService.Validators
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace QuestionService.Validators;
+
+public class TagListValidator(int min, int max) : ValidationAttribute
 {
-    public class TagListValidator
+    protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
     {
+        if (value is List<string> tags)
+        {
+            if (tags.Count >= min || tags.Count <= max)
+                return ValidationResult.Success;
+            
+        }
+
+        return new ValidationResult($"Provide at least min:{min} and max{max} tags");
     }
 }

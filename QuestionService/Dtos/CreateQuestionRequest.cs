@@ -1,7 +1,10 @@
-﻿namespace QuestionService.Dtos;
+﻿using System.ComponentModel.DataAnnotations;
+using QuestionService.Validators;
+
+namespace QuestionService.Dtos;
 
 public record CreateQuestionRequest(
-    string Title,
-    string Content,
-    List<string> Tags
+    [Required] string Title,
+    [Required] string Content,
+    [Required] [TagListValidator(1,5)]List<string> Tags
     );
